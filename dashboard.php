@@ -80,5 +80,22 @@ if (!isset($_SESSION['username'])) {
             <th>Jumlah</th>
             <th>Total</th>
         </tr>
+
+ <?php
+
+        // Commit 7 – Perhitungan Total (foreach)
+        $no = 1;
+        foreach ($beli as $i => $barang) {
+            echo "<tr>";
+            echo "<td>$no</td>";
+            echo "<td>{$kode_barang[$i]}</td>";
+            echo "<td>$barang</td>";
+            echo "<td>Rp " . number_format($harga_barang[$i], 0, ',', '.') . "</td>";
+            echo "<td>{$jumlah[$i]}</td>";
+            echo "<td>Rp " . number_format($total[$i], 0, ',', '.') . "</td>";
+            echo "</tr>";
+            $no++;
+        }
+        ?>
 </body>
 </html>
